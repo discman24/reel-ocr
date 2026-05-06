@@ -21,7 +21,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Pre-download PaddleOCR models at build time (avoids cold start download)
-RUN python -c "from paddleocr import PaddleOCR; PaddleOCR(use_angle_cls=True, lang='ch', show_log=False); PaddleOCR(use_angle_cls=True, lang='korean', show_log=False)"
 
 COPY paddle_ocr_service.py .
 
